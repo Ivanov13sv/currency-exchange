@@ -1,0 +1,19 @@
+main {
+	section {
+		.mainTitle {
+			margin-top: 117px;
+			font-family: 'Montserrat';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 35px;
+			line-height: 43px;
+			text-align: center;
+			color: #ffffff;
+			margin-bottom: 85px;
+		}
+		.controls{
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}

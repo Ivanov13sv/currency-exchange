@@ -1,0 +1,124 @@
+.control {
+	height: 73px;
+	max-width: 400px;
+	display: flex;
+	backdrop-filter: blur(7px);
+	.input {
+		background: rgba(255, 255, 255, 0.06);
+		
+		outline: none;
+		border: none;
+		padding: 1rem;
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 37px;
+		color: #ffffff;
+		width: 100%;
+		text-align: center;
+		font-family: 'Montserrat';
+
+	}
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	.select {
+		width: 138px;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		background: rgba(255, 255, 255, 0.06);
+		
+		outline: none;
+		border: none;
+		position: relative;
+
+		&__value {
+			font-weight: 400;
+			font-size: 30px;
+			line-height: 37px;
+			width: 80px;
+			align-items: flex-start;
+			color: #ffffff;
+		}
+		&__button {
+			background: rgba(255, 255, 255, 0.54);
+			backdrop-filter: blur(7px);
+			height: 100%;
+			width: 59px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s;
+
+			.arrow {
+				cursor: pointer;
+				transition: all 0.3s ease;
+				transform: rotate(180deg) translateY(-5px);
+				* {
+					fill: #393733;
+				}
+			}
+		}
+
+		&__list {
+			position: absolute;
+			display: none;
+			top: +100%;
+			right: 0;
+			background: rgba(255, 255, 255, 0.06);
+			backdrop-filter: blur(7px);
+			width: 145px;
+			list-style: none;
+			max-height: 220px;
+			overflow-y: scroll;
+			&::-webkit-scrollbar {
+				width: 10px;
+				
+			}
+			&::-webkit-scrollbar-track {
+				background: #4f4f4f;
+				border-radius: 10px;
+				
+			}
+			&::-webkit-scrollbar-thumb {
+				background: rgba(255, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+				
+			}
+			.select__item {
+				font-family: 'Montserrat';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 30px;
+				line-height: 37px;
+				padding: 14px 0 10px 10px;
+				margin-left: -2px;
+				color: #ffffff;
+				cursor: pointer;
+				&:hover {
+					background: rgba(255, 255, 255, 0.144);
+				}
+			}
+		}
+
+		&__active {
+			.select__list {
+				display: block;
+			}
+			.select__button {
+				background: rgba(255, 255, 255, 0.06);
+				transform: rotate(0deg);
+				.arrow {
+					transform: rotate(0);
+					* {
+						fill: white;
+					}
+				}
+			}
+		}
+	}
+}
