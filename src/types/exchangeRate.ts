@@ -1,23 +1,33 @@
 // добавить loading, error
 export interface StateRates {
-	amount: string;
-	base: string;
-	date: string;
 	rates: {};
+	loading: boolean;
+	errorRates: string | null;
 }
 
 export enum IRatesActionTypes {
 	RATES_FETCH = 'RATES_FETCH',
 	RATES_FETCH_SUCCESS = 'RATES_FETCH_SUCCESS',
+	RATES_FETCH_ERROR = 'RATES_FETCH_ERROR',
 }
 
 interface IRatesFetchSuccessAction {
 	type: IRatesActionTypes.RATES_FETCH_SUCCESS;
 	payload: {
-		base: string;
-		date: string;
 		rates: {};
 	};
 }
 
-export type IRateAction = IRatesFetchSuccessAction;
+interface IRatesFetchAction {
+	type: IRatesActionTypes.RATES_FETCH;
+}
+
+interface IRatesFetchErrorAction {
+	type: IRatesActionTypes.RATES_FETCH_ERROR;
+	payload: string;
+}
+
+export type IRateAction = 
+	IRatesFetchSuccessAction 
+	| IRatesFetchAction 
+	| IRatesFetchErrorAction;

@@ -1,7 +1,7 @@
 export interface StateCurrency {
 	currencies: string[];
 	loading: boolean;
-	error: null | string;
+	errorCurrencies: null | string;
 }
 
 export enum ICurrencyActionTypes {
@@ -20,7 +20,7 @@ interface ICurrenciesFetchSuccessAction {
 
 interface ICurrenciesFetchErrorAction {
 	type: ICurrencyActionTypes.CURRENCIES_FETCH_ERROR;
-	paylod: string;
+	payload: string;
 }
 
 export type ICurrenciesAction =

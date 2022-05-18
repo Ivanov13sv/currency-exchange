@@ -1,36 +1,65 @@
 .header {
-
-
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
-        height: 120px;
-        align-items: center;
+		height: 120px;
+		align-items: center;
 	}
 
-	.pageTitle {
+	.title {
 		font-family: 'Montserrat';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 30px;
-		line-height: 37px;
-
 		color: #ffffff;
+		font-size: 16px;
+		line-height: 20px;
 	}
 
 	nav {
 		.navBtn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			font-weight: 500;
-			font-size: 28px;
-			line-height: 34px;
-            text-decoration: none;
+			font-size: 15px;
+			line-height: 18px;
+			text-decoration: none;
 			color: #ffffff;
-            background-color: #D00000;
-            padding: 0 50px;
-            height: 72px;
+			background-color: #d00000;
+			width: 133px;
+			height: 37px;
+			a {
+				width: 100%;
+			}
+		}
+	}
+	@media (min-width: 480px) {
+		.title {
+			font-size: 22px;
+			line-height: 37px;
+		}
+		nav {
+			.navBtn {
+				height: 55px;
+				font-size: 22px;
+				line-height: 34px;
+				width: 200px;
+			}
+		}
+	}
+	@media (min-width: 600px) {
+		.title {
+			font-size: 30px;
+			line-height: 37px;
+		}
+		nav {
+			.navBtn {
+				height: 72px;
+				font-size: 28px;
+				line-height: 34px;
+				width: 269px;
+				// padding: 0 50px;
+			}
 		}
 	}
 }

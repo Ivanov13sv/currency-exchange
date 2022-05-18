@@ -7,18 +7,18 @@ import { Container } from 'components/Container';
 export const Header = () => {
 	const { pathname } = useLocation();
 
-	const path = pathname === '/exchange' ? '/exchange-rate' : '/exchange';
+	const path = pathname === '/' ? '/exchange-rate' : '/';
 
 	return (
 		<header className={styles.header}>
 			<Container>
 				<div className={styles.header__wrapper}>
-					<span className={styles.pageTitle}>
-						{path === '/exchange' ? 'Курс валют' : 'Обмен валют'}
+					<span className={styles.title}>
+						{path === '/' ? 'Курс валют' : 'Обмен валют'}
 					</span>
 					<nav>
 						<Link className={styles.navBtn} to={path}>
-							{path === '/exchange' ? 'Обмен валют' : 'Курс валют'}
+							{path === '/' ? 'Обмен валют' : 'Курс валют'}
 						</Link>
 					</nav>
 				</div>

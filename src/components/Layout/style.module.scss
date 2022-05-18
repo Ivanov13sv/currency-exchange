@@ -1,0 +1,13 @@
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    .main{
+        flex: 1 1 auto;
+    }
+    .footer{
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+    }
+}

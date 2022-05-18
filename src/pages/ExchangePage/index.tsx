@@ -5,10 +5,11 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 import { useActions } from 'hooks/useActions';
 
 import { Spiner } from 'components/UI/Spiner';
+import { ErrorMessage } from 'components/UI/ErrorMessage';
 import styles from './style.module.scss';
 
 export const ExchangePage = () => {
-	const { currencies, error, loading } = useTypedSelector(state => state.currencies);
+	const { currencies, errorCurrencies, loading } = useTypedSelector(state => state.currencies);
 	const { result, resultLoading } = useTypedSelector(state => state.exchange);
 	const [amount, setAmount] = useState('1');
 	const [baseCurrency, setBaseCurrency] = useState({
@@ -16,13 +17,11 @@ export const ExchangePage = () => {
 		to: '',
 	});
 
-	const { fetchAllСurrencies, changeСurrency } = useActions();
+	const { changeСurrency } = useActions();
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
 		setAmount(e.target.value);
 	};
-
-
 
 	useEffect(() => {
 		setBaseCurrency({
@@ -53,10 +52,7 @@ export const ExchangePage = () => {
 		}
 	};
 
-
-	if (error){
-		return <h1>Error</h1>
-	}
+	if (errorCurrencies) return <ErrorMessage message={errorCurrencies} />;
 
 	return (
 		<section>
@@ -69,7 +65,11 @@ export const ExchangePage = () => {
 					selectedCurrency={baseCurrency.from}
 					setCurrency={setFromCurrency}
 				/>
-				{loading ? <Spiner /> : <Arrow />}
+				<div className={styles.arrow}>
+					{loading ? <Spiner /> : <Arrow style={{ width: '100%', height: '100%' }} />}
+				</div>
+
+				{/* <Spiner /> */}
 
 				<Control
 					selectItems={currencies}

@@ -1,6 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import styles from './style.module.scss';
 
-export const Spiner = () => {
-	return <div className={styles.spiner} />;
+interface SpinProps {
+	width?: string;
+	height?: string;
+}
+
+export const Spiner: FC<SpinProps> = ({ width, height }) => {
+	return <div  className={styles.spiner} />;
 };

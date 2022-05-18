@@ -12,7 +12,7 @@ export const fetchAllСurrencies = () => {
 		} catch (error) {
 			dispatch({
 				type: ICurrencyActionTypes.CURRENCIES_FETCH_ERROR,
-				paylod: 'Произошла ошибка при загрузке списка валют',
+				payload: 'Произошла ошибка при загрузке списка валют',
 			});
 		}
 	};

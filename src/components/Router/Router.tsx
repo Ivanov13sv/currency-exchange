@@ -1,12 +1,12 @@
-import { Container } from 'components/Container';
 import { useActions } from 'hooks/useActions';
 import { ExchangePage } from 'pages/ExchangePage';
 import { RatePage } from 'pages/RatePage';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { Layout } from 'components/Layout/Layout';
 
-export const Main = () => {
+export const Router = () => {
 	const { fetchAllСurrencies } = useActions();
 
 	useEffect(() => {
@@ -14,15 +14,12 @@ export const Main = () => {
 	}, []);
 
 	return (
-		<main>
-			<Container>
-				<Routes>
-					<Route path="/exchange" element={<ExchangePage />} />
-
-					<Route path="/exchange-rate" element={<RatePage />} />
-					<Route path="*" element={<NotFoundPage />} />
-				</Routes>
-			</Container>
-		</main>
+		<Routes>
+			<Route path="/" element={<Layout />}>
+				<Route index element={<ExchangePage />} />
+				<Route path="/exchange-rate" element={<RatePage />} />
+				<Route path="*" element={<NotFoundPage />} />
+			</Route>
+		</Routes>
 	);
 };

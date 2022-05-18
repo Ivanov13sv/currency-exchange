@@ -3,7 +3,7 @@ import { StateCurrency, ICurrenciesAction, ICurrencyActionTypes } from 'types/cu
 const initialState: StateCurrency = {
 	currencies: [],
 	loading: false,
-	error: null,
+	errorCurrencies: null,
 };
 
 export const currenciesReducer = (
@@ -18,7 +18,7 @@ export const currenciesReducer = (
 			return { ...state, loading: false, currencies: action.payload };
 
 		case ICurrencyActionTypes.CURRENCIES_FETCH_ERROR:
-			return { ...state, loading: false, error: 'Произошла ошибка при загрузке валют' };
+			return { ...state, loading: false, errorCurrencies: action.payload };
 		default:
 			return state;
 	}

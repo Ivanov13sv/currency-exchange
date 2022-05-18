@@ -5,11 +5,12 @@ import { ReactComponent as Equals } from 'assets/images/icons/equals.svg';
 import { useActions } from 'hooks/useActions';
 
 import { Spiner } from 'components/UI/Spiner';
+import { ErrorMessage } from 'components/UI/ErrorMessage';
 import styles from './style.module.scss';
 
 export const RatePage = () => {
-	const { currencies } = useTypedSelector(state => state.currencies);
-	const { rates } = useTypedSelector(state => state.rate);
+	const { currencies, errorCurrencies } = useTypedSelector(state => state.currencies);
+	const { rates, loading, errorRates } = useTypedSelector(state => state.rate);
 	const { getExchangeRate } = useActions();
 	const [currentCurrency, setCurrentCurrency] = useState('');
 
@@ -23,7 +24,11 @@ export const RatePage = () => {
 		if (currentCurrency) {
 			getExchangeRate(currentCurrency);
 		}
+		//eslint-disable-next-line
 	}, [currentCurrency]);
+
+	if (errorRates) return <ErrorMessage message={errorRates} />;
+	if (errorCurrencies) return <ErrorMessage message={errorCurrencies} />;
 
 	return (
 		<section>
@@ -36,8 +41,10 @@ export const RatePage = () => {
 					setCurrency={setCurrentCurrency}
 					selectItems={currencies}
 				/>
-				{rates ? <Equals /> : <Spiner />}
-				{/* <Equals /> */}
+				<div className={styles.equals}>
+					{loading ? <Spiner /> : <Equals style={{ width: '100%', height: '100%' }} />}
+				</div>
+				{/* <div className={styles.equals}> <Spiner /> </div> */}
 				<ul className={styles.rates__body__list}>
 					{Object.entries(rates).map((item: any, i) => (
 						<li className={styles.list__item} key={i}>
