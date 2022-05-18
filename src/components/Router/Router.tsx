@@ -11,6 +11,7 @@ export const Router = () => {
 
 	useEffect(() => {
 		fetchAllСurrencies();
+		// eslint-disable-next-line
 	}, []);
 
 	return (

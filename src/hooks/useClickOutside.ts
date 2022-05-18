@@ -1,5 +1,4 @@
-import { useRef, useEffect, ChangeEvent } from 'react';
-// change type of event inside handler
+import { useRef, useEffect } from 'react';
 
 export const useClickOutside = (callback: () => void) => {
 	const domNode = useRef<HTMLHeadingElement>(null);

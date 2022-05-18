@@ -1,8 +1,9 @@
 import { ChangeEvent, FC, useState } from 'react';
 import { ReactComponent as Arrow } from 'assets/images/icons/select-arrow.svg';
 import { Spiner } from 'components/UI/Spiner';
-import styles from './style.module.scss';
 import { useClickOutside } from 'hooks/useClickOutside';
+
+import styles from './style.module.scss';
 
 interface ControlProps {
 	disabled?: boolean;

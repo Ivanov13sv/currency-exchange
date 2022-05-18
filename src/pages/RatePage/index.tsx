@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { Control } from 'components/UI/Control';
 import { useTypedSelector } from 'hooks/useTypedSelector';
@@ -24,7 +25,6 @@ export const RatePage = () => {
 		if (currentCurrency) {
 			getExchangeRate(currentCurrency);
 		}
-		//eslint-disable-next-line
 	}, [currentCurrency]);
 
 	if (errorRates) return <ErrorMessage message={errorRates} />;
@@ -44,7 +44,6 @@ export const RatePage = () => {
 				<div className={styles.equals}>
 					{loading ? <Spiner /> : <Equals style={{ width: '100%', height: '100%' }} />}
 				</div>
-				{/* <div className={styles.equals}> <Spiner /> </div> */}
 				<ul className={styles.rates__body__list}>
 					{Object.entries(rates).map((item: any, i) => (
 						<li className={styles.list__item} key={i}>

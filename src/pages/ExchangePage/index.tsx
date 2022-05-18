@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from 'react';
 import { Control } from 'components/UI/Control';
 import { ReactComponent as Arrow } from 'assets/images/icons/right-arrow.svg';
@@ -68,9 +69,6 @@ export const ExchangePage = () => {
 				<div className={styles.arrow}>
 					{loading ? <Spiner /> : <Arrow style={{ width: '100%', height: '100%' }} />}
 				</div>
-
-				{/* <Spiner /> */}
-
 				<Control
 					selectItems={currencies}
 					disabled
